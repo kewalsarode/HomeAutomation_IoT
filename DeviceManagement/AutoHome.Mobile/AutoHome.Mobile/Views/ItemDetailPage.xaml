@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoHome.Mobile.Views.ItemDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Remove" Clicked="Remove_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Spacing="20" Padding="15">
+        <Frame IsClippedToBounds="True"  
+           HasShadow="True"  
+           Padding="5"  
+           BackgroundColor="White" >
+            <Frame.OutlineColor>
+                <OnPlatform x:TypeArguments="Color"  
+                    Android="Gray"  
+                    iOS="Gray"/>
+            </Frame.OutlineColor>
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"  
+                     Android="5"   
+                     iOS="5"/>
+            </Frame.Margin>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="{Binding UserDevice.Image}" WidthRequest="80"/>
+                <Grid VerticalOptions="CenterAndExpand"  
+                 Padding="0"  
+                 HorizontalOptions="FillAndExpand"  
+                 BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0"  
+                   BackgroundColor="Transparent"  
+                   Padding="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView Grid.Row="0"  
+                            Grid.Column="0"
+                             CornerRadius="20"
+                             HeightRequest="20"
+                             WidthRequest="20"
+                             Color="{Binding StatusColor}"/>
+                        <Label Grid.Row="0"  
+                          Grid.Column="1" 
+                           FontAttributes="Bold" 
+                           FontSize="16"
+                          Text="{Binding OnlineStatus}"/>
+                    </Grid>
+                    <BoxView Grid.Row="1" Color="Gray"  
+                    HorizontalOptions="FillAndExpand"  
+                    HeightRequest="1"/>
+                    <Label FontAttributes="Bold"  
+                   Grid.Row="2"  
+                   HorizontalTextAlignment="Start"  
+                   VerticalTextAlignment="Center"  
+                   FontSize="16"  
+                   Text="{Binding SwitchStatus}">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </Frame>
+
+        <Frame IsClippedToBounds="True"  
+           HasShadow="True"  
+           Padding="0"  
+           BackgroundColor="White" >
+            <Frame.OutlineColor>
+                <OnPlatform x:TypeArguments="Color"  
+                    Android="Gray"  
+                    iOS="Gray"/>
+            </Frame.OutlineColor>
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"  
+                     Android="5"   
+                     iOS="5"/>
+            </Frame.Margin>
+            <StackLayout Orientation="Horizontal">
+                <BoxView Color="Blue" WidthRequest="6"/>
+                <Grid VerticalOptions="CenterAndExpand"  
+                 Padding="10"  
+                 HorizontalOptions="FillAndExpand"  
+                 BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label FontAttributes="Bold"  
+                           Grid.Row="0" Grid.Column="0"  
+                           VerticalTextAlignment="Center" HorizontalOptions="End"  
+                           FontSize="16"  
+                           Text="Name:">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="1"  
+                           VerticalTextAlignment="Center"  
+                           FontSize="Medium"  
+                           Text="{Binding UserDevice.Name}">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+
+                    <Label FontAttributes="Bold"  
+                           Grid.Row="1" Grid.Column="0"  
+                           VerticalTextAlignment="Center"  HorizontalOptions="End"  
+                           FontSize="16"  
+                           Text="Description:">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+                    <Label Grid.Row="1" Grid.Column="1"  
+                           VerticalTextAlignment="Center"  
+                           FontSize="Medium"  
+                           Text="{Binding UserDevice.Description}">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+
+                    <Label FontAttributes="Bold"  
+                           Grid.Row="2" Grid.Column="0"  
+                           VerticalTextAlignment="Center"  HorizontalOptions="End"  
+                           FontSize="16"  
+                           Text="Serial Number:">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+                    <Label Grid.Row="2" Grid.Column="1"  
+                           VerticalTextAlignment="Center"  
+                           FontSize="Medium"  
+                           Text="{Binding UserDevice.DeviceSerialNr}">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </Frame>
+
+        <Frame IsClippedToBounds="True"  
+           HasShadow="True"  
+           Padding="0"  
+           BackgroundColor="White" >
+            <Frame.OutlineColor>
+                <OnPlatform x:TypeArguments="Color"  
+                    Android="Gray"  
+                    iOS="Gray"/>
+            </Frame.OutlineColor>
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"  
+                     Android="5"   
+                     iOS="5"/>
+            </Frame.Margin>
+            <StackLayout Orientation="Horizontal">
+                <BoxView Color="Green" WidthRequest="6"/>
+                <Grid VerticalOptions="CenterAndExpand"  
+                 Padding="0"  
+                 HorizontalOptions="FillAndExpand"  
+                 BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label FontAttributes="Bold"  
+                           Grid.Row="0"  
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"  
+                           FontSize="16"  
+                           Text="Switch ON/OFF">
+                        <Label.LineBreakMode>
+                            <OnPlatform x:TypeArguments="LineBreakMode"  
+                          Android="NoWrap"   
+                          iOS="TailTruncation"/>
+                        </Label.LineBreakMode>
+                    </Label>
+
+                    <Switch Grid.Row="1" HorizontalOptions="Center" Toggled="Switch_Toggled" OnColor="Green" IsToggled="{Binding IsToggled}"/>
+                    <Button Grid.Row="2" HorizontalOptions="Center" BackgroundColor="#22A1BD" TextColor="White" Text="Reset WiFi" Margin="10" Command="{Binding ResetCommand}"/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

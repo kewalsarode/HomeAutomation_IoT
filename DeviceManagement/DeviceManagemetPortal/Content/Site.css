@@ -1,0 +1,48 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.card {
+    width: 230px;
+    height: 105px;
+    border: 1px solid;
+    box-shadow: 3px 3px;
+    padding: 7px;
+    display: inline-block;
+    margin: 10px;
+}
+
+    .card:hover {
+        background-color: lightskyblue;
+        box-shadow: 5px 5px 2px 2px;
+        cursor:pointer;
+    }
+
+
+    /* Control Panel*/
+    .c-panel {
+        border:solid 1px black;
+        margin:5px;
+        padding-bottom: 10px;
+    }

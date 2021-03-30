@@ -1,0 +1,65 @@
+﻿@model DeviceManagemetPortal.Models.DevicesViewModel
+
+@{
+    ViewBag.Title = "User Devices";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2>User Devices</h2>
+    <button id="btnAddDevice" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Device</button><br /><br />
+    <div class="row">
+        <div id="devicesColumn" class="col-md-12">
+            <div id="userDevices" class="row"></div>
+        </div>
+        <div id="cpColumn" class="">
+            <button type="button" class="close" onclick="closeCPanel();">×</button>
+            <h3 id="deviceName"></h3>
+            <h4 id="cpDeviceSerial"></h4>
+            <h4 id="cpDeviceType"></h4>
+            <button id="btnSwitch" type="button" class="btn btn-success" style="width:80px;">ON</button>
+            <button id="btnResetWifi" type="button" class="btn btn-primary">Reset Wifi</button>
+            <span>Staus: </span><label id="lblStatus">OFF</label>
+        </div>
+    </div>
+    
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Add Device</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="Name" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <input type="text" class="form-control" id="Description" placeholder="Description" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DeviceSerialNr">DeviceSerialNr</label>
+                        <input type="text" class="form-control" id="DeviceSerialNr" placeholder="Device Serial Number" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DeviceType">DeviceType</label>
+                        <input type="text" class="form-control" id="DeviceType" placeholder="Device Type" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/Devices")
